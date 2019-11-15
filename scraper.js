@@ -9,6 +9,7 @@ function initDatabase(callback) {
 	var db = new sqlite3.Database("data.sqlite");
 	db.serialize(function() {
 		db.run("CREATE TABLE IF NOT EXISTS data (name TEXT)");
+		db.run("TRUNCATE TABLE data");
 		callback(db);
 	});
 }
